@@ -1,6 +1,6 @@
 package study.codereview.payment.domain.vo;
 
-import study.codereview.payment.exception.exceptions.PaymentNotFoundException;
+import study.codereview.payment.exception.exceptions.PaymentTypeNotFoundException;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ public enum PaymentType {
         return Arrays.stream(PaymentType.values())
                 .filter(paymentType -> paymentType.isSame(name))
                 .findAny()
-                .orElseThrow(PaymentNotFoundException::new);
+                .orElseThrow(PaymentTypeNotFoundException::new);
     }
 
     private boolean isSame(final String name) {

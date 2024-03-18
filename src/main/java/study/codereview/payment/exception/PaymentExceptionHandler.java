@@ -4,13 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import study.codereview.payment.exception.exceptions.PaymentNotFoundException;
+import study.codereview.payment.exception.exceptions.PaymentTypeNotFoundException;
 
 @RestControllerAdvice
 public class PaymentExceptionHandler {
 
-    @ExceptionHandler(PaymentNotFoundException.class)
-    public ResponseEntity<String> handlePaymentNotFoundException(final PaymentNotFoundException exception) {
+    @ExceptionHandler(PaymentTypeNotFoundException.class)
+    public ResponseEntity<String> handlePaymentNotFoundException(final PaymentTypeNotFoundException exception) {
         return handleExceptionWithStatus(exception, HttpStatus.BAD_REQUEST);
     }
 
