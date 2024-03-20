@@ -1,6 +1,6 @@
 package study.codereview.book.domain.vo;
 
-import study.codereview.book.domain.exception.exceptions.CategoryNotFoundException;
+import study.codereview.book.exception.exceptions.CategoryNotFoundException;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

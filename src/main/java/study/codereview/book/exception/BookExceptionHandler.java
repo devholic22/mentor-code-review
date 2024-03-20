@@ -1,12 +1,12 @@
-package study.codereview.book.domain.exception;
+package study.codereview.book.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import study.codereview.book.domain.exception.exceptions.CategoryNotFoundException;
-import study.codereview.book.domain.exception.exceptions.CostDivideException;
-import study.codereview.book.domain.exception.exceptions.CostRangeException;
+import study.codereview.book.exception.exceptions.CategoryNotFoundException;
+import study.codereview.book.exception.exceptions.CostDivideException;
+import study.codereview.book.exception.exceptions.CostRangeException;
 
 @RestControllerAdvice
 public class BookExceptionHandler {

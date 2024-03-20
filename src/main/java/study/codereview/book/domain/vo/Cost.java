@@ -4,8 +4,8 @@ import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import study.codereview.book.domain.exception.exceptions.CostDivideException;
-import study.codereview.book.domain.exception.exceptions.CostRangeException;
+import study.codereview.book.exception.exceptions.CostDivideException;
+import study.codereview.book.exception.exceptions.CostRangeException;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

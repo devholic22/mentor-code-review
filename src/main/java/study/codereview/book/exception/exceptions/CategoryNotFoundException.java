@@ -1,4 +1,4 @@
-package study.codereview.book.domain.exception.exceptions;
+package study.codereview.book.exception.exceptions;
 
 public class CategoryNotFoundException extends RuntimeException {
 
