@@ -17,7 +17,7 @@ public class Cost {
 
     private int cost;
 
-    public Cost(int cost) {
+    private Cost(int cost) {
         this.cost = cost;
     }
 
@@ -44,7 +44,8 @@ public class Cost {
         }
     }
 
-    public Cost getCostAfterDiscountWithCategory(final Category category) {
-        return Cost.from(category.calculateAfterDiscount(cost));
+    public Cost updateCost(final int cost) {
+        validateCostValue(cost);
+        return new Cost(cost);
     }
 }

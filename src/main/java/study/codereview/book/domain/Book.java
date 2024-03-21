@@ -46,7 +46,8 @@ public class Book {
     }
 
     public int getCostAfterDiscount() {
-        Cost costAfterDiscount = cost.getCostAfterDiscountWithCategory(category);
+        int afterDiscountValue = category.calculateAfterDiscount(cost.getCost());
+        Cost costAfterDiscount = cost.updateCost(afterDiscountValue);
         return costAfterDiscount.getCost();
     }
 
