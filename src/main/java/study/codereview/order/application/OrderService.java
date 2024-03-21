@@ -18,8 +18,9 @@ public class OrderService {
 
     public Order createOrder(final OrderCreateRequest request) {
         Order order = Order.createDefault(request.bookId(), request.orderMoney());
-        Events.raise(new OrderCreatedEvent(request.bookId(), request.orderMoney(), request.paymentType()));
+        Order savedOrder = orderRepository.save(order);
+        Events.raise(new OrderCreatedEvent(request.bookId(), request.paymentType()));
 
-        return orderRepository.save(order);
+        return savedOrder;
     }
 }

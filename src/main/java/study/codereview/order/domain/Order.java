@@ -6,11 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import study.codereview.global.domain.BaseEntity;
 import study.codereview.order.domain.vo.OrderMoney;
 
+@Table(name = "orders")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Order extends BaseEntity {
