@@ -23,7 +23,7 @@ public class OrderService {
         validateIsBookExist(request.bookId());
 
         Order savedOrder = createOrderByCreateRequest(request);
-        Events.raise(new OrderCreatedEvent(request.bookId(), request.paymentType()));
+        Events.raise(new OrderCreatedEvent(savedOrder.getId(), request.paymentType()));
 
         return savedOrder;
     }

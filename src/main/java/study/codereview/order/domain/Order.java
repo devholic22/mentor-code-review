@@ -42,6 +42,10 @@ public class Order extends BaseEntity {
         return orderMoney.getMoney();
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Long getBookId() {
         return bookId;
     }
