@@ -1,16 +1,21 @@
 package study.codereview.order.domain.vo;
 
+import jakarta.persistence.Embeddable;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import study.codereview.order.exception.exceptions.OrderMoneyDivideException;
 import study.codereview.order.exception.exceptions.OrderMoneyRangeException;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Embeddable
 public class OrderMoney {
 
     private static final int MIN_VALUE = 0;
     private static final int REQUIRE_DIVIDE_ZERO = 10;
 
-    private final int money;
+    private int money;
 
     private OrderMoney(final int money) {
         this.money = money;
