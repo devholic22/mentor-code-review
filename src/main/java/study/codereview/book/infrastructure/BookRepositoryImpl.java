@@ -17,4 +17,9 @@ public class BookRepositoryImpl implements BookRepository {
     public List<Book> findAll() {
         return bookJpaRepository.findAll();
     }
+
+    @Override
+    public boolean existsById(final Long id) {
+        return bookJpaRepository.existsById(id);
+    }
 }

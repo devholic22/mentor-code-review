@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import study.codereview.book.exception.exceptions.BookNotFoundException;
 import study.codereview.book.exception.exceptions.CategoryNotFoundException;
 import study.codereview.book.exception.exceptions.CostDivideException;
 import study.codereview.book.exception.exceptions.CostRangeException;
@@ -24,6 +25,11 @@ public class BookExceptionHandler {
     @ExceptionHandler(CostRangeException.class)
     public ResponseEntity<String> handleCostRangeException(final CostRangeException exception) {
         return handleExceptionWithStatus(exception, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BookNotFoundException.class)
+    public ResponseEntity<String> handleBookNotFoundException(final BookNotFoundException exception) {
+        return handleExceptionWithStatus(exception, HttpStatus.NOT_FOUND);
     }
 
     private ResponseEntity<String> handleExceptionWithStatus(final Exception exception, final HttpStatus status) {
