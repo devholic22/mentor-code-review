@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 import study.codereview.order.domain.Order;
 import study.codereview.order.domain.OrderRepository;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
 @Repository
 public class OrderRepositoryImpl implements OrderRepository {
@@ -19,7 +17,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Optional<Order> findById(final Long orderId) {
-        return orderJpaRepository.findById(orderId);
+    public boolean existsById(final Long orderId) {
+        return orderJpaRepository.existsById(orderId);
     }
 }
