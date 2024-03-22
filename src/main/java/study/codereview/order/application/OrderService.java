@@ -19,13 +19,13 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final BookRepository bookRepository;
 
-    public Order createOrder(final OrderCreateRequest request) {
+    public Long createOrder(final OrderCreateRequest request) {
         validateIsBookExist(request.bookId());
 
         Order savedOrder = createOrderByCreateRequest(request);
         Events.raise(new OrderCreatedEvent(savedOrder.getId(), request.paymentType()));
 
-        return savedOrder;
+        return savedOrder.getId();
     }
 
     private void validateIsBookExist(final Long bookId) {
