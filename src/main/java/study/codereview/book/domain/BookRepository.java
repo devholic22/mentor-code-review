@@ -1,9 +1,10 @@
 package study.codereview.book.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookRepository {
 
     List<Book> findAll();
-    boolean existsById(Long id);
+    Optional<Book> findById(Long id);
 }

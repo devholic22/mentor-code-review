@@ -6,6 +6,7 @@ import study.codereview.book.domain.Book;
 import study.codereview.book.domain.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
@@ -19,7 +20,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public boolean existsById(final Long id) {
-        return bookJpaRepository.existsById(id);
+    public Optional<Book> findById(final Long id) {
+        return bookJpaRepository.findById(id);
     }
 }

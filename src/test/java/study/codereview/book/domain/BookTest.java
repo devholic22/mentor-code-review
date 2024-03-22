@@ -1,9 +1,8 @@
-package study.codereview.book;
+package study.codereview.book.domain;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
-import study.codereview.book.domain.Book;
 import study.codereview.book.domain.vo.Category;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,7 +24,7 @@ class BookTest {
     }
 
     @Test
-    void 할인_후의_금액_계산() {
+    void 할인_금액_계산() {
         // given
         String bookName = "hello";
         String categoryName = "개발";
@@ -33,12 +32,12 @@ class BookTest {
 
         Book book = Book.createDefault(bookName, categoryName, costValue);
         Category category = Category.DEVELOP;
-        int expected = category.calculateAfterDiscount(costValue);
+        int expected = costValue - category.calculateAfterDiscount(costValue);
 
         // when
-        int costAfterDiscount = book.getCostAfterDiscount();
+        int discount = book.getDiscount();
 
         // then
-        assertThat(costAfterDiscount).isEqualTo(expected);
+        assertThat(discount).isEqualTo(expected);
     }
 }

@@ -6,6 +6,7 @@ public record OrderCreateResponse(
         LocalDateTime createdAt,
         Integer orderMoney,
         Integer bookCost,
+        Integer discount,
         Integer remainMoney
 ) {
 }

@@ -3,6 +3,7 @@ package study.codereview.order.application;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import study.codereview.book.domain.Book;
 import study.codereview.book.domain.BookRepository;
 import study.codereview.book.exception.exceptions.BookNotFoundException;
 import study.codereview.global.event.Events;
@@ -20,22 +21,21 @@ public class OrderService {
     private final BookRepository bookRepository;
 
     public Long createOrder(final OrderCreateRequest request) {
-        validateIsBookExist(request.bookId());
+        Book book = findBookById(request.bookId());
 
-        Order savedOrder = createOrderByCreateRequest(request);
+        Order savedOrder = createOrder(request, book);
         Events.raise(new OrderCreatedEvent(savedOrder.getId(), request.paymentType()));
 
         return savedOrder.getId();
     }
 
-    private void validateIsBookExist(final Long bookId) {
-        if (!bookRepository.existsById(bookId)) {
-            throw new BookNotFoundException();
-        }
+    private Book findBookById(final Long bookId) {
+        return bookRepository.findById(bookId)
+                .orElseThrow(BookNotFoundException::new);
     }
 
-    private Order createOrderByCreateRequest(final OrderCreateRequest request) {
-        Order order = Order.createDefault(request.bookId(), request.orderMoney());
+    private Order createOrder(final OrderCreateRequest request, final Book book) {
+        Order order = Order.createDefault(book.getId(), book.getCostValue(), book.getDiscount(), request.orderMoney());
         return orderRepository.save(order);
     }
 }

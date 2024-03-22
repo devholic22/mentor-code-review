@@ -16,7 +16,7 @@ public record BookSearchResponse(
                 book.getName(),
                 book.getCategoryTitle(),
                 book.getCostValue(),
-                book.getCostAfterDiscount()
+                book.getDiscount()
         );
     }
 }

@@ -9,10 +9,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import study.codereview.book.domain.vo.Category;
 import study.codereview.book.domain.vo.Cost;
 
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Book {
@@ -45,10 +49,8 @@ public class Book {
         return new Book(name, category, cost);
     }
 
-    public int getCostAfterDiscount() {
-        int afterDiscountValue = category.calculateAfterDiscount(cost.getCost());
-        Cost costAfterDiscount = cost.updateCost(afterDiscountValue);
-        return costAfterDiscount.getCost();
+    public int getDiscount() {
+        return cost.getCost() - category.calculateAfterDiscount(cost.getCost());
     }
 
     public Long getId() {

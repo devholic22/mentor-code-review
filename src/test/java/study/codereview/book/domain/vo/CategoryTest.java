@@ -1,11 +1,10 @@
-package study.codereview.book.vo;
+package study.codereview.book.domain.vo;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import study.codereview.book.domain.vo.Category;
 import study.codereview.book.exception.exceptions.CategoryNotFoundException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

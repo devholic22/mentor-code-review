@@ -22,7 +22,8 @@ public class OrderQueryRepository {
                         order.createdAt,
                         order.orderMoney.money,
                         book.cost.cost,
-                        order.orderMoney.money.subtract(book.cost.cost))
+                        order.discount,
+                        order.orderMoney.money.subtract(book.cost.cost).add(order.discount))
                 ).from(order)
                 .join(payment)
                 .on(payment.orderId.eq(order.id))

@@ -8,10 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import study.codereview.global.domain.BaseEntity;
 import study.codereview.order.domain.vo.OrderMoney;
 
+@Getter
 @Table(name = "orders")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -28,25 +30,29 @@ public class Order extends BaseEntity {
     @Column(nullable = false)
     private Long bookId;
 
-    private Order(final Long bookId, final OrderMoney orderMoney) {
+    @Column(nullable = false)
+    private Integer bookCost;
+
+    @Column(nullable = false)
+    private Integer discount;
+
+    @Column(nullable = false)
+    private Integer orderPrice;
+
+    private Order(final Long bookId, final int bookCost, final int discount, final OrderMoney orderMoney) {
         this.bookId = bookId;
+        this.bookCost = bookCost;
+        this.discount = discount;
         this.orderMoney = orderMoney;
+        this.orderPrice = bookCost - discount;
     }
 
-    public static Order createDefault(final Long bookId, final int orderMoneyValue) {
+    public static Order createDefault(final Long bookId, final int bookCost, final int discount, final int orderMoneyValue) {
         OrderMoney orderMoney = OrderMoney.from(orderMoneyValue);
-        return new Order(bookId, orderMoney);
+        return new Order(bookId, bookCost, discount, orderMoney);
     }
 
     public int getOrderMoney() {
         return orderMoney.getMoney();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getBookId() {
-        return bookId;
     }
 }
