@@ -18,12 +18,14 @@ public class OrderQueryRepository {
     private final JPAQueryFactory queryFactory;
 
     public Optional<OrderCreateResponse> findCreatedOrderById(final Long orderId) {
-        OrderCreateResponse response = queryFactory.select(constructor(OrderCreateResponse.class,
-                        order.createdAt,
-                        order.orderMoney.money,
-                        book.cost.cost,
-                        order.discount,
-                        order.orderMoney.money.subtract(book.cost.cost).add(order.discount))
+        OrderCreateResponse response = queryFactory.select(
+                        constructor(OrderCreateResponse.class,
+                                order.createdAt,
+                                payment.paymentType,
+                                order.orderMoney.money,
+                                book.cost.cost,
+                                order.discount,
+                                order.orderMoney.money.subtract(book.cost.cost).add(order.discount))
                 ).from(order)
                 .join(payment)
                 .on(payment.orderId.eq(order.id))
