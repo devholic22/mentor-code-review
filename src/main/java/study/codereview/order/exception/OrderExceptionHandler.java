@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import study.codereview.order.exception.exceptions.OrderMoneyDivideException;
 import study.codereview.order.exception.exceptions.OrderMoneyRangeException;
+import study.codereview.order.exception.exceptions.OrderNotFoundException;
 
 @RestControllerAdvice
 public class OrderExceptionHandler {
@@ -18,6 +19,11 @@ public class OrderExceptionHandler {
     @ExceptionHandler(OrderMoneyRangeException.class)
     public ResponseEntity<String> handleOrderMoneyRangeException(final OrderMoneyRangeException exception) {
         return handleExceptionWithStatus(exception, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<String> handleOrderNotFoundException(final OrderNotFoundException exception) {
+        return handleExceptionWithStatus(exception, HttpStatus.NOT_FOUND);
     }
 
     private ResponseEntity<String> handleExceptionWithStatus(final Exception exception, final HttpStatus status) {
