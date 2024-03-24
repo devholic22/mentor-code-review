@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.codereview.order.domain.OrderRepository;
 import study.codereview.order.exception.exceptions.OrderNotFoundException;
-import study.codereview.order.infrastructure.dto.OrderCreateResponse;
+import study.codereview.order.ui.infrastructure.dto.OrderCreateResponse;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)

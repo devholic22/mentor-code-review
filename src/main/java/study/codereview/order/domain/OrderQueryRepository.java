@@ -3,7 +3,7 @@ package study.codereview.order.domain;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import study.codereview.order.infrastructure.dto.OrderCreateResponse;
+import study.codereview.order.ui.infrastructure.dto.OrderCreateResponse;
 
 import java.util.Optional;
 import static com.querydsl.core.types.Projections.constructor;

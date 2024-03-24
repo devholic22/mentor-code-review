@@ -12,7 +12,7 @@ public enum Category {
     DEVELOP("개발") {
 
         private static final String TIME_ZONE = "Asia/Seoul";
-        private static final double DISCOUNT_RATE = 0.1;
+        private static final double DISCOUNT_RATE = 0.15;
 
         @Override
         public int calculateAfterDiscount(final int cost) {

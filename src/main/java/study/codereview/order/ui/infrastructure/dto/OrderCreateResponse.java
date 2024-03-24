@@ -1,4 +1,4 @@
-package study.codereview.order.infrastructure.dto;
+package study.codereview.order.ui.infrastructure.dto;
 
 import study.codereview.payment.domain.vo.PaymentType;
 

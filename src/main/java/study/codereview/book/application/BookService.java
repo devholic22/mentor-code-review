@@ -13,9 +13,18 @@ import java.util.List;
 @Service
 public class BookService {
 
+    // TODO: 3layer 아키텍처가 왜나왔는지, 헥사고날은 무엇이 다른지?
+    // TODO: service는 service를 호출하면 안되는가?
+    // discount service
     private final BookRepository bookRepository;
+
+    public List<Book> findAllBooksWithDiscount() {
+        // discount service
+        return bookRepository.findAll();
+    }
 
     public List<Book> findAllBooks() {
         return bookRepository.findAll();
     }
+
 }

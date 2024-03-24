@@ -1,11 +1,11 @@
-package study.codereview.order.infrastructure;
+package study.codereview.order.ui.infrastructure;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import study.codereview.order.domain.Order;
 import study.codereview.order.domain.OrderQueryRepository;
 import study.codereview.order.domain.OrderRepository;
-import study.codereview.order.infrastructure.dto.OrderCreateResponse;
+import study.codereview.order.ui.infrastructure.dto.OrderCreateResponse;
 
 import java.util.Optional;
 

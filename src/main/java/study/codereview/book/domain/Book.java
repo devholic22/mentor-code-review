@@ -32,9 +32,11 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private Category category;
 
+    // TODO: Integer
     @Column(nullable = false)
     @Embedded
     private Cost cost;
+    // TODO: Money 객체로 불변 BigDecimal로 변경
 
     private Book(final String name, final Category category, final Cost cost) {
         this.name = name;

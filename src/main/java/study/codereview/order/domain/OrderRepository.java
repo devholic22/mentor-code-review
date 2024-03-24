@@ -1,6 +1,6 @@
 package study.codereview.order.domain;
 
-import study.codereview.order.infrastructure.dto.OrderCreateResponse;
+import study.codereview.order.ui.infrastructure.dto.OrderCreateResponse;
 
 import java.util.Optional;
 
